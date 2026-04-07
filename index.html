@@ -29,9 +29,10 @@
                 <div class="heart">💗</div>
                 <div class="heart">❤️</div>
             </div>
-         <button class="cta-button" onclick="startCelebration()">
-             Start the Celebration 🎉
-        </button>
+         <!-- Hero Section Button -->
+<button class="cta-button" onclick="startCelebration()">
+    Start the Celebration 🎉
+</button>
         </div>
         <div class="scroll-indicator">
             <div class="scroll-arrow"></div>
@@ -172,19 +173,28 @@
 
 <script>
 function startCelebration() {
-    // Show audio
-    let audio = document.getElementById("music");
-    audio.style.display = "block"; // agar visible control chahiye
+    // 1️⃣ Target gallery, message, music
+    const gallery = document.getElementById("gallery");
+    const message = document.getElementById("message");
+    const audio = document.getElementById("music");
+
+    // 2️⃣ Show gallery & message
+    gallery.style.display = "block";
+    message.style.display = "block";
+
+    // 3️⃣ Small timeout for fade-in animation
+    setTimeout(() => {
+        gallery.classList.add("show");
+        message.classList.add("show");
+    }, 50);
+
+    // 4️⃣ Play music
     audio.play().catch(() => {
-        // fallback for mobile autoplay block
         document.addEventListener("click", () => audio.play(), { once: true });
     });
 
-    // Show gallery
-    document.getElementById("gallery").style.display = "block";
-
-    // Smooth scroll to gallery
-    document.getElementById("gallery").scrollIntoView({ behavior: "smooth" });
+    // 5️⃣ Scroll smoothly to gallery
+    gallery.scrollIntoView({ behavior: "smooth" });
 }
 </script>
 </body>
