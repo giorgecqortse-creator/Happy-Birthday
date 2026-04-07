@@ -517,15 +517,15 @@ body {
         margin-bottom: 40px;
     }
 }
-/* Initially hide gallery, message, and music */
-#gallery, #message, #music {
-    display: none;
-}
+/* Initially hide gallery and message */
 #gallery, #message {
+    display: none;
     opacity: 0;
     transition: opacity 1s ease;
 }
 
+/* Show with fade-in */
 #gallery.show, #message.show {
+    display: block;
     opacity: 1;
 }
